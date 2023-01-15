@@ -11,13 +11,13 @@ variable "tags" {
 
 variable "region" {
   description = "the region to use"
-  default     = "eu-west-3"
+  default     = "eu-central-1"
 }
 
 variable "az1" {
   description = "the first az to use"
   type        = list(any)
-  default     = ["eu-west-3a", "eu-west-3b"]
+  default     = ["eu-central-1a", "eu-central-1b"]
 }
 
 variable "user_data" {
@@ -42,11 +42,23 @@ variable "user_data" {
 
 variable "ami" {
   description = "the ec2 image"
-  default     = "ami-03c476a1ca8e3ebdc"
+  default     = "ami-0039da1f3917fa8e3"
 }
 
 variable "instance_type" {
   description = "the ec2 type"
+  type        = string
   default     = "t3a.micro"
+}
+
+variable "sub-ip" {
+  description = "ip lists for subnets"
+  type        = list(any)
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+variable "vpc-ip" {
+  description = "vpc-ip"
+  default     = "10.0.0.0/16"
 }
 
